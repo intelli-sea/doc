@@ -8,3 +8,16 @@ sudo docker run -p 49013:49013 -p 49015:49015 -p 49041-49045:49041-49045 -p 1138
 --name my-sap013 saplabs/hanaexpress:latest \
 --agree-to-sap-license \
 --passwords-url file:///hana/mounts/sap_key.json
+
+when belove error occurs:
+Processing hooks in folder /hana/hooks/post_start ...
+Hook candidates:
+	/hana/hooks/post_start/201_hxe_optimize
+	/hana/hooks/post_start/203_set_hxe_info
+	/hana/hooks/post_start/hxe_scripts (ignored, not an executable regular file)
+Executing hook /hana/hooks/post_start/201_hxe_optimize ...
+	Optimizing HDB server...
+	 
+	hdbsql SystemDB => SELECT COUNT(*) from "PUBLIC"."M_DATABASES" WHERE DATABASE_NAME='HXE'
+	* -10709: Connect failed (connect timeout expired) (127.0.0.1:60262 -> localhost:39017) SQLSTATE: HY000
+
