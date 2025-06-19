@@ -1,0 +1,10 @@
+
+
+sudo docker run -p 49013:49013 -p 49015:49015 -p 49041-49045:49041-49045 -p 1138-1139:1128-1129 -p 59023-59024:59013-59014 -p 49030-49033:49030-49033 -p 51000-51060:51000-51060 -p 53075:53075 -h hxehost -v /data/hxe:/hana/mounts \
+--ulimit nofile=1048576:1048576 \
+--sysctl kernel.shmmax=1073741824 \
+--sysctl net.ipv4.ip_local_port_range='60000 65535' \
+--sysctl kernel.shmall=8388608 \
+--name my-sap013 saplabs/hanaexpress:latest \
+--agree-to-sap-license \
+--passwords-url file:///hana/mounts/sap_key.json
